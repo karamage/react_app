@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import Rect from './Rect'
 import './App.css';
 
-let data = {title: 'Title', 
-  message: 'this is sample message.'};
+let data = {title: 'Title', message: 'this is sample message.'};
 
 const SampleContext = React.createContext(data);
 
 class App extends Component {
   newdata = {title:'新しいタイトル',
     message:'これは新しいメッセージです。'};
-  
   render() {
     return (
       <div>
