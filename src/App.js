@@ -46,6 +46,7 @@ class App extends Component {
     return <div style={s}></div>;
   }
 
+  /*
   render() {
     return <div>
       <h1>React</h1>
@@ -54,6 +55,45 @@ class App extends Component {
         {this.data.map((value)=>this.draw(value))}
       </div>
     </div>;
+  }
+  */
+
+  render() {
+    return <div>
+      <h1>React</h1>
+      <Message title="Children!">
+        これはコンポーネント内のコンテンツです。
+        丸でテキストを分割し、リストにして表示します。
+        改行は必要ありません。
+      </Message>
+    </div>
+  }
+}
+
+class Message extends Component {
+  li = {
+    fontSize: "16px",
+    color: "#06",
+    margin: "0px",
+    padding: "0px"
+  }
+
+  render() {
+    let content = this.props.children;
+    let arr = content.split('。');
+    let arr2 = [];
+    for(let i=0; i < arr.length; i++) {
+      if (arr[i].trim() != '') {
+        arr2.push(arr[i]);
+      }
+    }
+    let list = arr2.map((value,key) => (
+      <li style={this.li} key={key}>{value}.</li>
+    ));
+    return <div>
+      <h2>{this.props.title}</h2>
+      <ol>{list}</ol>
+    </div>
   }
 }
 
