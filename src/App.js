@@ -11,20 +11,56 @@ class App extends Component {
     margin: "20px 0px",
     padding: "5px",
   }
+  /*
   area = {
     width: "500px",
     height: "500px",
     border: "1px solid blue"
   }
+  */
+  inputStyle = {
+    fontSize: "12pt",
+    padding: "5px"
+  }
 
   constructor(props) {
     super(props);
     this.state = {
-      list: this.data
+      // list: this.data
+      message: 'type your name:'
     };
-    this.doAction = this.doAction.bind(this);
+    // this.doAction = this.doAction.bind(this);
+    this.doChange = this.doChange.bind(this);
+    this.doSubmit = this.doSubmit.bind(this);
   }
 
+  doChange(event) {
+    this.input = event.target.value;
+  }
+
+  doSubmit(event) {
+    this.setState({
+      message: 'Hello, ' + this.input + '!!'
+    });
+    event.preventDefault();
+  }
+
+  render() {
+    return <div>
+      <h1>React</h1>
+      <h2>{this.state.message}</h2>
+      <form onSubmit={this.doSubmit}>
+        <label>
+          <span style={this.inputStyle}></span>Message:
+          <input type="text" style={this.inputStyle}
+            onChange={this.doChange} />
+        </label>
+        <input type="submit" style={this.inputStyle} value="Click" />
+      </form>
+    </div>
+  }
+
+  /*
   doAction(e) {
     let x = e.pageX;
     let y = e.pageY;
@@ -46,7 +82,6 @@ class App extends Component {
     return <div style={s}></div>;
   }
 
-  /*
   render() {
     return <div>
       <h1>React</h1>
@@ -56,7 +91,6 @@ class App extends Component {
       </div>
     </div>;
   }
-  */
 
   render() {
     return <div>
@@ -68,6 +102,7 @@ class App extends Component {
       </Message>
     </div>
   }
+  */
 }
 
 class Message extends Component {
