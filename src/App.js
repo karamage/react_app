@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import './App.css';
 import Memo from './memo/Memo';
 import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm';
+// import FindForm from './memo/FindForm';
+// import DelForm from './memo/DelForm';
 
 // Appコンポーネント
 class App extends Component {
@@ -22,15 +22,17 @@ class App extends Component {
         <h1>Memo</h1>
         <AddForm />
         <hr />
+        <Memo />
+      </div>
+    );
+    /*
         <table>
           <tbody><tr>
           <td style={this.td}><FindForm /></td>
           <td style={this.td}><DelForm /></td>
           </tr></tbody>
         </table>
-        <Memo />
-      </div>
-    );
+    */
   }
 }
 
